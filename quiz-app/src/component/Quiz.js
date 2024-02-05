@@ -5,7 +5,7 @@ const Quiz = () => {
     //console.log(QuestionsData);
     const [current, setCurrent] = useState(0)
     const [selectChoice, setSelectChoice] = useState("")
-    const {score,setScore} = useContext(DataContext)
+    const {score,setScore,setAppState} = useContext(DataContext)
 
     useEffect(() => {
         checkAnswer()
@@ -24,9 +24,15 @@ const Quiz = () => {
         }
     }
 
-    const nextQuestion=()=> {
-        setCurrent(current+1)
+    const nextQuestion =()=> {
+        setSelectChoice("")
+        if(current===QuestionsData.length-1) {
+            setAppState("score")
+        }else{
+            setCurrent(current+1)
+        }
     }
+
     return (
 
         <div className="quiz">
