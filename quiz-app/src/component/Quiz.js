@@ -16,10 +16,16 @@ const Quiz = () => {
             if (selectChoice === QuestionsData[current].answer) {
                 console.log("ตอบถูกและได้คะแนน")
                 setScore(score+1)
+                nextQuestion()
             } else {
                 console.log("ตอบผิดจะได้คะแนนได้ไง งง")
+                nextQuestion()
             }
         }
+    }
+
+    const nextQuestion=()=> {
+        setCurrent(current+1)
     }
     return (
 
